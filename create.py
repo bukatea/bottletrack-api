@@ -10,7 +10,7 @@ def main(event, context):
     data = json.loads(event['body'])
     item = {
       'userId': {
-        'S': "123"
+        'S': event['requestContext']['identity']['cognitoIdentityId']
       },
       'bottleName': {
         'S': data['bottleName']
@@ -25,5 +25,5 @@ def main(event, context):
     dynamodb.put(TableName=os.getenv('tableName'), Item=item)
 
     return item
-    
+
   return makeHandler(handlerFunc)(event, context)

@@ -11,7 +11,7 @@ def main(event, context):
       KeyConditionExpression="userId = :userId",
       ExpressionAttributeValues={
         ':userId': {
-          'S': "123"
+          'S': event['requestContext']['identity']['cognitoIdentityId']
         }
       }
     )

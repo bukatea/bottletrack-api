@@ -1,5 +1,10 @@
 {
   "pathParameters": {
     "name": "4Ocean Bottle"
+  },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
   }
 }

@@ -24,7 +24,7 @@ def main(event, context):
     data = json.loads(event['body'])
     key = {
       'userId': {
-        'S': "123"
+        'S': event['requestContext']['identity']['cognitoIdentityId']
       },
       'bottleName': {
         'S': event['pathParameters']['name']

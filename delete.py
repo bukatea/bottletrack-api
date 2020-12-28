@@ -8,7 +8,7 @@ def main(event, context):
   def handlerFunc(event, context):
     key = {
       'userId': {
-        'S': "123"
+        'S': event['requestContext']['identity']['cognitoIdentityId']
       },
       'bottleName': {
         'S': event['pathParameters']['name']

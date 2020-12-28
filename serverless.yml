@@ -33,11 +33,13 @@ functions:
     # Defines an HTTP API endpoint that calls the main function in create.py
     # - path: url path is /bottles
     # - method: POST request
+    # - authorizer: authenticate using the AWS IAM role
     handler: create.main
     events:
       - http:
           path: bottles
           method: post
+          authorizer: aws_iam
 
   get:
     # Defines an HTTP API endpoint that calls the main function in get.py
@@ -48,6 +50,7 @@ functions:
       - http:
           path: bottles/{name}
           method: get
+          authorizer: aws_iam
 
   list:
     # Defines an HTTP API endpoint that calls the main function in list.py
@@ -58,6 +61,7 @@ functions:
       - http:
           path: bottles
           method: get
+          authorizer: aws_iam
 
   update:
     # Defines an HTTP API endpoint that calls the main function in update.py
@@ -68,6 +72,7 @@ functions:
       - http:
           path: bottles/{name}
           method: put
+          authorizer: aws_iam
 
   delete:
     # Defines an HTTP API endpoint that calls the main function in delete.py
@@ -78,3 +83,4 @@ functions:
       - http:
           path: bottles/{name}
           method: delete
+          authorizer: aws_iam
