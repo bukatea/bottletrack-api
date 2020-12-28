@@ -13,7 +13,11 @@ def makeHandler(lambdaFunc):
 
     return {
       'statusCode': statusCode,
-      'body': json.dumps(body)
+      'body': json.dumps(body),
+      'headers': {
+        'Access-Control-Allow-Origin': "*",
+        'Access-Control-Allow-Credentials': True,
+      } 
     }
 
   return handler
