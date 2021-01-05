@@ -1,7 +1,7 @@
 {
   "body": "{\"BD_ADDR\":\"EE:FF:33:22:11:00\"}",
   "pathParameters": {
-    "name": "4Ocean Bottle"
+    "name": "4Ocean%20Bottle"
   },
   "requestContext": {
     "identity": {

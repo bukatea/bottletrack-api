@@ -1,5 +1,6 @@
 import json
 import os
+from urllib.parse import unquote
 
 from libs import dynamodb
 from libs.handler import makeHandler
@@ -11,7 +12,7 @@ def main(event, context):
         'S': event['requestContext']['identity']['cognitoIdentityId']
       },
       'bottleName': {
-        'S': event['pathParameters']['name']
+        'S': unquote(event['pathParameters']['name'])
       }
     }
     response = dynamodb.get(TableName=os.getenv('tableName'), Key=key)
